@@ -1,8 +1,8 @@
 language: julia
 os:
-  - linux
+- linux
 julia:
-  - 1.0
+- 1.0
 notifications:
   email: false
 git:
@@ -10,25 +10,20 @@ git:
 cache:
   timeout: 1000
   directories:
-    - downloads
+  - downloads
 env:
   global:
-    - BINARYBUILDER_DOWNLOADS_CACHE=downloads
-    - BINARYBUILDER_AUTOMATIC_APPLE=false
+  - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+  - BINARYBUILDER_AUTOMATIC_APPLE=false
 sudo: required
-
-# Before anything else, get the latest versions of things
 before_script:
-  - julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder"; Pkg.build()'
-
+- julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder"; Pkg.build()'
 script:
-  - julia build_tarballs.jl
-
+- julia build_tarballs.jl
 deploy:
   provider: releases
   api_key:
-    secure: "hTU9KGNGVzhzqJQV34FL7jCGZa1/7v8ShJfBvM2RfqZO5fFOyZwib2T8iELWdwOUYJcCG/ea24z8Tc4nh99Pzs2tFKnWKH1Nmyabs1FS6sry2OB+IAMV6oWA/5oBusaoG/cYCnwXhE1AOxkiL4DJkRGHpjukCTaTLK1V6vNcPed21kr6mPpb6cVL3t8ebCEh7vTkYhXaGoojnzOlC5P377imeg727FfZZF6SYWjEDwMjWsPaSJHOkcIpFBG19yZKSQJCLfhu7e14fv44GPzJF50bi7RZG/bkwTNuG5Kmbhy6fFlCOXUAcp1TOI0L1ZM+5nSeZO49x5KnYRyALdyZiNyy675wrK5JQm146ZRWmqFvdfzzLPKaOmg+YDE/yALAaMYeI8hfjZS5FavAMAPHxqNPmLQAg0exmTF3ghMVQEkLOsC9F72EaMJUn8f4cErHje2zNCPTrC1F9ci9tz2g+cFntMsAYSG/JDbFpLQ7W/umOFSUaN3RSb+rhVKlnyI8LYf+tbL0lH2XqT/cptFPKLIhu7BLURurVHB5bYw2WHqCGBhQowKPeRB5tL0hvNWFTa6O8vTf/dLJx6wqmTQAiFyl1zlWptTcf/Awb+LLFSm8rdf75nMRQ7A07QmbuciqVleZK19ZfSDk2vNPcnUUZLL3CdsftmTu9DEbf+70DFQ="
-
+    secure: I3uPr+rCtTc6tp7iY8kbitHcTD7GJBrjeqc6lROE9sVpt6BGBG8f9iDgApjDhjTs+yjzp+SWudR8JkdFDtr7BFhlytKLfIWv8hrIU3zQQJI20Yg6veNWBfRSK9M9WlR77VyoYX2cM9uIcmRfpHPekD7BAQIGtAXK9bKvXkKV2WfZ4A63CJFhrrI/8zLGq3mxztL0r/UEbzoQxmJkQuY1ooK+K+nb1y724uyx7PmtKMtrmlR14KXpOBQx6tjZnjgiXUmfWDjtgftUCDoX5rB7AOPN2rw3qCt36ecTZqjzaprKbFAq8eleAhM46QLlxDU/Sg4lkLtP5rU6FCuzVWoOqSK8edkjoN6j/FIWB27INylpMJhgRr9kNdAWU+xvJloT7gWty2InMTfroPaf1QvKA31HSXQVSN4woh/3ziAnylulMynOhEZRrqYbmlDxr+8CBsPXqjFVaNoPlXacvvxp9AwCyJaUTuaCNYQz90asaguelN5K2DHQBEeiaDdsB2Z14XeTJMP4db47+JyiOKVFXlc2a9p1xyCMotoBDXNNvX/s2ohqKH2TMAkr3q/jsw+0HJtJcJrRwyoDp77mZu3XfUc3Zbfsy8rDs9qiag20P+Rj5YmaLCUtv1Hd3VFIuLUAwp4dfsfwSgp3MG/EIBIMbRRokFdPF30YlaNePRAY/XQ=
   file_glob: true
   file: products/*
   skip_cleanup: true
