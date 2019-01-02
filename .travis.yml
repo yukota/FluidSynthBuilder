@@ -1,8 +1,8 @@
 language: julia
 os:
-  - linux
+- linux
 julia:
-  - 1.0
+- 1.0
 notifications:
   email: false
 git:
@@ -10,17 +10,23 @@ git:
 cache:
   timeout: 1000
   directories:
-    - downloads
+  - downloads
 env:
   global:
-    - BINARYBUILDER_DOWNLOADS_CACHE=downloads
-    - BINARYBUILDER_AUTOMATIC_APPLE=false
+  - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+  - BINARYBUILDER_AUTOMATIC_APPLE=false
 sudo: required
-
-# Before anything else, get the latest versions of things
 before_script:
-  - julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder"; Pkg.build()'
-
+- julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder"; Pkg.build()'
 script:
-  - julia build_tarballs.jl
-
+- julia build_tarballs.jl
+deploy:
+  provider: releases
+  api_key:
+    secure: UD+NpRwWD30hXqEY8EhQN5xxIoe032Yq0aZM8DpIrOrro12dylZ9PEXNcnOvJBHc6iGTgIUiaigLRPoOdyL550S06YajihdALqGx3Q+VqIvPTiWJf92AOMS9X6U/3Elo1NZHs//gTTAx+FCfX4oSCgE/QoU9AoLjqc1jhrsy4qTm3pKzVYIkrQSNMID0ZP1KnrACgFJwTUIjdD5uEUuSVbQkgrXeUcW64cIq5jHWXiJY4PrPc6ZN7aePd9NKY30d2MiSkCJCsVpzz1CpyE3uxZeykn4DNbbOhYW1H0JP/wn6zNsYbqkAStaLxCt1DS6vJbpwUZJ8avv4ONc3O0Cwo6lx4E2yAaBmphNz2+iWp+AOMh/nzLPY9NcBMNxHlLanafNa85u0CaF4ZggMnjou4aD5teYXW7HmBLhvrib8QFmV+zu7Qsl9YaYYFFEDGEo0d9Uze61srrwMJ7fQl+0KiV2T8iGUygiBBwzghuuJtHAXXFruDCXP+ztLIssKjMxwXzFN6T9j6f/SF2cBdnUK58FFVXd/8XPXfkLRjw8iKDM6JyPd1bdslQkrJGP+jUFjzgP4l95YivgKnXnEFBYCUrYHoK9W7A1OSiKyq6cq621ZOF12XuK54mIqETIUA7Tktxbpw+L3arBrW0cuEeL35SjBXtgMANVpQki2lt+1aEQ=
+  file_glob: true
+  file: products/*
+  skip_cleanup: true
+  on:
+    repo: yukota/FluidSynthBuilder
+    tags: true
