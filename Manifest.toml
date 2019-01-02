@@ -2,12 +2,10 @@
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
 [[BinaryBuilder]]
-deps = ["Base64", "BinaryProvider", "GitHub", "HTTP", "InteractiveUtils", "JLD2", "JSON", "LibGit2", "Libdl", "MbedTLS", "ObjectFile", "Pkg", "PkgLicenses", "ProgressMeter", "REPL", "Random", "Reexport", "SHA", "Sockets"]
-git-tree-sha1 = "2f696c9ef94397575f5730c57906f0d760519cc1"
-repo-rev = "master"
-repo-url = "https://github.com/JuliaPackaging/BinaryBuilder.jl.git"
+deps = ["Base64", "BinaryProvider", "GitHub", "HTTP", "InteractiveUtils", "JLD2", "JSON", "LibGit2", "Libdl", "MbedTLS", "ObjectFile", "Pkg", "PkgLicenses", "ProgressMeter", "REPL", "Random", "Reexport", "SHA", "Sockets", "Test"]
+git-tree-sha1 = "c93d4614cd1285242c3f2448e18b970c613d147d"
 uuid = "12aac903-9f7c-5d81-afc2-d9565ea332ae"
-version = "0.0.4"
+version = "0.1.2"
 
 [[BinaryProvider]]
 deps = ["Libdl", "Pkg", "SHA", "Test"]
