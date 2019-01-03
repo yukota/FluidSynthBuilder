@@ -2,7 +2,6 @@
 # `julia build_tarballs.jl --help` to see a usage message.
 using BinaryBuilder
 
-name = "libfluidsynth"
 
 # Collection of sources required to build libfluidsynth
 sources = [
@@ -41,4 +40,4 @@ dependencies = [
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
-build_tarballs(ARGS, name, sources, script, platforms, products, dependencies)
+build_tarballs(ARGS, "FluidSynth", sources, script, platforms, products, dependencies)
