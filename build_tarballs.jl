@@ -18,7 +18,7 @@ cd $WORKSPACE/srcdir
 cd fluidsynth/
 mkdir build
 cd build/
-cmake .. -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain
+cmake .. -DCMAKE_INSTALL_PREFIX=$prefix -DLIB_SUFFIX="" -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain
 make
 make install
 exit
@@ -45,4 +45,3 @@ dependencies = [
 
 # Build the tarballs, and possibly a `build.jl` as well.
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
-
