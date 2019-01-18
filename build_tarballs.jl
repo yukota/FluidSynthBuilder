@@ -40,8 +40,10 @@ products(prefix) = [
 # Dependencies that must be installed before this package can be built
 dependencies = [
     "https://github.com/staticfloat/GlibBuilder/releases/download/v2.54.2-2/build.jl",
-    "https://github.com/staticfloat/libffiBuilder/releases/download/v3.2.1-0/build.jl"
+    "https://github.com/staticfloat/libffiBuilder/releases/download/v3.2.1-0/build.jl",
+    "https://github.com/yukota/libsndfileBuilder/releases/download/v1.0.28-0/build_libsndfile.v1.0.28.jl"
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
+
